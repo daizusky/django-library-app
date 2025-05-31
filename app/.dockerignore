@@ -1,0 +1,15 @@
+# 仮想環境などビルド不要なもの
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# エディタ関連
+.vscode/
+.idea/
+
+# 本番で不要なファイル
+.env
+db.sqlite3
+*.log
