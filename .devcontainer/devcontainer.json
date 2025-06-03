@@ -1,5 +1,5 @@
 {
-  "name": "Django Dev (Pipenv)",
+  "name": "Django Dev",
   "dockerComposeFile": ["../compose.yml"],
   "service": "app",
   "workspaceFolder": "/app",
@@ -9,20 +9,28 @@
       "extensions": [
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "ms-azuretools.vscode-docker",
-        "EditorConfig.EditorConfig"
+        "charliermarsh.ruff",
+        "batisteo.vscode-django",
+        "oderwat.indent-rainbow",
+        "ms-ceintl.vscode-language-pack-ja"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/app/.venv/bin/python",
+        "python.languageServer": "Pylance",
+        "python.formatting.provider": "none", // Ruff を使うため、他のフォーマッタは無効化
         "python.linting.enabled": true,
-        "python.linting.flake8Enabled": true,
-        "python.formatting.provider": "black",
+        "python.linting.pylintEnabled": false,
+        // Ruffをデフォルトのフォーマッタとして設定
         "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
           "editor.formatOnSave": true,
           "editor.codeActionsOnSave": {
-            "source.organizeImports": true
+            "source.organizeImports": "explicit", // Ruffがisortの機能を含むため、これで対応
+            "source.fixAll": "explicit" // RuffのLint修正も保存時に実行
           }
-        }
+        },
+        // 日本語パックを有効にするための設定
+        "locale": "ja"
       }
     }
   },
