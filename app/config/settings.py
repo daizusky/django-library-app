@@ -63,7 +63,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -155,4 +155,9 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 ACCOUNT_LOGIN_METHODS = {"email"}
 ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]
 ACCOUNT_EMAIL_VERIFICATION = "optional"
-LOGIN_REDIRECT_URL = "/"  # ログイン後に遷移する先（必要に応じて）
+LOGIN_REDIRECT_URL = "/accounts/dashboard/"
+ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login/"
+
+
+# メールの送信をターミナルに表示させる
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
