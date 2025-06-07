@@ -9,13 +9,14 @@ class Publisher(models.Model):
         NEWS = "news", "新聞社系"
         OTHER = "other", "その他"
 
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField("出版社名", max_length=100, unique=True)
     publisher_type = models.CharField(
+        "出版社種別",
         max_length=20,
         choices=PublisherType.choices,
         default=PublisherType.GENERAL,
     )
-    address = models.TextField(blank=True)
+    address = models.TextField("住所", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
