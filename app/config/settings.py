@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     # allauth本体と機能別アプリ
     "allauth",
     "allauth.account",
+    # django-bootstrap5
+    "django_bootstrap5",
     # 自分で作成したアプリ
     "accounts",
 ]
@@ -154,7 +156,7 @@ AUTH_USER_MODEL = "accounts.CustomUser"
 # ログイン方法の設定（メール+パスワード）
 ACCOUNT_LOGIN_METHODS = {"email"}
 ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]
-ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 LOGIN_REDIRECT_URL = "/accounts/dashboard/"
 ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login/"
 
@@ -169,7 +171,3 @@ EMAIL_PORT = int(os.getenv("EMAIL_PORT", 1025))
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
 DEFAULT_FROM_EMAIL = "no-reply@example.com"
-
-# メモ必要
-ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
-

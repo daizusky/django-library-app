@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}ログイン{% endblock %}
+
+{% block content %}
+  <h2 class="mb-4">ログイン</h2>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">ログイン情報に誤りがあります。</div>
+  {% endif %}
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary">ログイン</button>
+  </form>
+{% endblock %}
