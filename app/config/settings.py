@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     # 自分で作成したアプリ
     "accounts",
+    "library",
 ]
 
 MIDDLEWARE = [
