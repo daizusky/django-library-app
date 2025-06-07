@@ -1,36 +1,34 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
-
 {% block content %}
-<div class="container mt-4">
-  <h1>出版社詳細</h1>
-  <table class="table table-bordered mt-3">
-    <tr>
-      <th>ID</th>
-      <td>{{ publisher.id }}</td>
-    </tr>
-    <tr>
-      <th>出版社名</th>
-      <td>{{ publisher.name }}</td>
-    </tr>
-    <tr>
-      <th>住所</th>
-      <td>{{ publisher.address|default:"（なし）" }}</td>
-    </tr>
-    <tr>
-      <th>種別</th>
-      <td>{{ publisher.get_publisher_type_display }}</td>
-    </tr>
-    <tr>
-      <th>作成日</th>
-      <td>{{ publisher.created_at }}</td>
-    </tr>
-    <tr>
-      <th>更新日</th>
-      <td>{{ publisher.updated_at }}</td>
-    </tr>
-  </table>
-
-  <a href="{% url 'library:publisher_list' %}" class="btn btn-secondary">一覧へ戻る</a>
-</div>
+    <div class="container mt-4">
+        <h1>出版社詳細</h1>
+        <table class="table table-bordered mt-3">
+            <tr>
+                <th>ID</th>
+                <td>{{ publisher.id }}</td>
+            </tr>
+            <tr>
+                <th>出版社名</th>
+                <td>{{ publisher.name }}</td>
+            </tr>
+            <tr>
+                <th>住所</th>
+                <td>{{ publisher.address|default:"（なし）" }}</td>
+            </tr>
+            <tr>
+                <th>種別</th>
+                <td>{{ publisher.get_publisher_type_display }}</td>
+            </tr>
+            <tr>
+                <th>作成日</th>
+                <td>{{ publisher.created_at }}</td>
+            </tr>
+            <tr>
+                <th>更新日</th>
+                <td>{{ publisher.updated_at }}</td>
+            </tr>
+        </table>
+        <a href="{% url 'library:publisher_list' %}" class="btn btn-secondary">一覧へ戻る</a>
+    </div>
 {% endblock %}

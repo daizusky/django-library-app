@@ -1,17 +1,15 @@
 {% extends "base.html" %}
 {% load django_bootstrap5 %}
-
 {% block content %}
-  <div class="container mt-4">
-    <h1 class="mb-4">出版社の新規登録</h1>
-
-    <form method="post">
-      {% csrf_token %}
-      {% bootstrap_form form layout="vertical" %}
-      <div class="mt-3">
-        <button type="submit" class="btn btn-primary">登録</button>
-        <a href="{% url 'library:publisher_list' %}" class="btn btn-secondary">戻る</a>
-      </div>
-    </form>
-  </div>
+    <div class="container mt-4">
+        <h1 class="mb-4">出版社の新規登録</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% bootstrap_form form layout="vertical" %}
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">登録</button>
+                <a href="{% url 'library:publisher_list' %}" class="btn btn-secondary">戻る</a>
+            </div>
+        </form>
+    </div>
 {% endblock %}
