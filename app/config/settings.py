@@ -160,4 +160,16 @@ ACCOUNT_LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 
 # メールの送信をターミナルに表示させる
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# メールをMailhogに送信する
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = os.getenv("EMAIL_HOST", "localhost")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", 1025))
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = "no-reply@example.com"
+
+# メモ必要
+ACCOUNT_FORMS = {"signup": "accounts.forms.CustomSignupForm"}
+
