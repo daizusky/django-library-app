@@ -1,3 +1,0 @@
-[tool.ruff]
-select = ["E", "F", "I", "B"]
-line-length = 88
